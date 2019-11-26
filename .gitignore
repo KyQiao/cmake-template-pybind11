@@ -9,3 +9,9 @@ install_manifest.txt
 compile_commands.json
 CTestTestfile.cmake
 _deps
+
+/dist
+/build
+/wheelFile.egg-info
+/tests/__pycache__/
+tests/__pycache__/test.cpython-37.pyc
