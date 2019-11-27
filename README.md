@@ -24,7 +24,7 @@
 Before you use the template, make sure:
 
 - You have CMake which can be found in PATH
-- You have VS 15 or later installed or at least you have full c++ toolchain. If you're not familiar with this, install the VS 19 will be a good choice.
+- You have VS 15 or later installed or at least you have full c++ toolchain. If you're not familiar with this, install the VS 19 will be a good choice(only c/c++ package is enough).
 - VC++ runtime 2015 is required. This is automatically satisfied in modern windows. If you need to distribute complied package to other windows,like for some older version, they need the runtime library. Download from windows [here](https://www.microsoft.com/en-us/download/details.aspx?id=48145 ) or you just `conda` install it.
 - You have pip and your Python package environment which can be found in PATH. This is why I recommend `Anaconda`, which give you `anaconda prompt` to initialize all the Python environment.
 - Make sure your CMake can find your MSVC compiler. Check the PATH carefully.
@@ -62,3 +62,12 @@ formats please refer to the Sphinx manual:
 
  - `cd cmake_example/docs`
  - `make html`
+
+## Structure of package
+
+Two packaging tools are used: `setuptools` from Python and `CMake`. `CMake` takes care of the c++ file, i.e. `pyd` file. `setuptools` will package them together, in which you can add some Python file and build up a mixed package. 
+
+Basically, `setup.py` will invoke the `CMake` and add everything it builds to the package folder, so that modify  `CMakeList.txt` is enough for managing most file. Python file structure can be managed directly from package folder. 
+
+**Do clean the build** when you change the structure,  some former build file will also be added to new distribution.
+

@@ -57,15 +57,19 @@ class CMakeBuild(build_ext):
         subprocess.check_call(['cmake', '--build', '.'] + build_args, cwd=self.build_temp)
 
 setup(
-    # name of the wheel file
-    name='wheelFile',
+    # name of the wheel file,better to be same with the
+    # project name. Use pip un/install with this name.
+    name='template-example',
     version='0.0.1',
     author='KyQiao',
     author_email='ustkyqiao@gmail.com',
     description='description goes here',
     long_description='',
-    # ?
-    ext_modules=[CMakeExtension('ctest')],
+    # declare using the CMakeList in root folder, 
+    # naming seems not matter
+    ext_modules=[CMakeExtension('example_package.ctest')],
+    # add 
+    packages=['example_package'],
     cmdclass=dict(build_ext=CMakeBuild),
     zip_safe=False,
 )

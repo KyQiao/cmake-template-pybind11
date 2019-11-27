@@ -1,22 +1,7 @@
-# from test import test,testprint
-
-# testprint.print('teast')
-
-# import test
-import ctest
-import testprint
-from testprint import testprint as p
-from ctest import test
-# from test import test as t
-
-# print(dir(test))
-
-# t1 = test()
-# t2 = test()
-# t1.testomp(100000000,4)
-# t2.testomp(100000000)
-
-print(dir(test))
+from example_package import test
+from example_package import testprint as p
+# test is the class test
+# and testprint is the function as defined in cpp
 
 t3=test()
 t3.testomp(100000)

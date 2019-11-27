@@ -10,7 +10,7 @@ using overload_cast_ = pybind11::detail::overload_cast_impl<Args...>;
 namespace py = pybind11;
 
 // need to be same with CMakelist module name
-PYBIND11_MODULE(ctest, m) {
+PYBIND11_MODULE(_ctest, m) {
     py::class_<test>(m, "test")
     .def(py::init<>())
     .def("testomp", overload_cast_<int>()(&test::testomp))
@@ -27,9 +27,10 @@ PYBIND11_MODULE(ctest, m) {
 #endif
 }
 
-// this
-PYBIND11_MODULE(testprint, m) {
-    m.def("testprint", &print<std::string>)
-    .def("testprint", &print<int>)
-    .def("testprint", &print<double>);
-}
+//add another module is also possible
+// this will compile another pyd file
+// PYBIND11_MODULE(_testprint, m) {
+//     m.def("testprint", &print<std::string>)
+//     .def("testprint", &print<int>)
+//     .def("testprint", &print<double>);
+// }
