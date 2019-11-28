@@ -14,12 +14,11 @@ file(GLOB DEV
 )
 
 if (UNIX)
-    set(CMAKE_CXX_FLAGS_RELEASE "-O3 -fopenmp")
+    set(CMAKE_CXX_FLAGS_RELEASE "-O3 ")
 endif(UNIX)
 
 if (MSVC)
-    # set(CMAKE_CXX_FLAGS_RELEASE "/O2 /openmp /I './src'")
-    set(CMAKE_CXX_FLAGS_RELEASE "/O2 /openmp")
+    set(CMAKE_CXX_FLAGS_RELEASE "/O2 ")
 endif (MSVC)
 
 set(HOME_INC_DIR "./src") 
@@ -31,5 +30,6 @@ project(example_package)
 add_subdirectory(pybind11)
 # name of pyd file
 pybind11_add_module(_ctest ${SOURCES})
+target_link_libraries(_ctest PRIVATE ${Openmp_CXX_FLAGS})
 pybind11_add_module(_testprint ${DEV})
 
