@@ -51,6 +51,20 @@ pip install -U my_wheel_name.whl
 
 to install corresponding package. `-U` will automatically update the target package which is quite useful in testing.
 
+Clean the build:
+
+```bash
+python setup.py clean
+```
+
+and more commands:
+
+```bash
+python setup.py --help-commands
+```
+
+
+
 
 ## Building the documentation
 
