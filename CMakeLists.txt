@@ -18,7 +18,8 @@ if (UNIX)
 endif(UNIX)
 
 if (MSVC)
-    set(CMAKE_CXX_FLAGS_RELEASE "/O2 ")
+    # seems openmp won't work for this case
+    set(CMAKE_CXX_FLAGS_RELEASE "/O2 /openmp")
 endif (MSVC)
 
 set(HOME_INC_DIR "./src") 
